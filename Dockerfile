@@ -1,6 +1,6 @@
 FROM ubuntu:latest
 
-# So ubuntu will stfu about tzdata
+# So ubuntu will be quiet about tzdata
 ARG DEBIAN_FRONTEND=noninteractive
 
 # Installing apache and the modules needed here
