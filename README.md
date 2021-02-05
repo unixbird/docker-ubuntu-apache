@@ -1,4 +1,4 @@
-Docker image that allows you to host apache with php modules easily.
+Docker image that allows you to host apache with php modules like php-mysql easily.
 
 Notes---
 
