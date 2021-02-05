@@ -1,31 +1,33 @@
 FROM ubuntu:latest
 
-MAINTAINER Bartek Mis <bartek.mis@gmail.com>
+# So ubuntu will stfu about tzdata
+ARG DEBIAN_FRONTEND=noninteractive
 
-# Install apache, PHP 7, and supplimentary programs. openssh-server, curl, and lynx-cur are for debugging the container.
+# Installing apache and the modules needed here
 RUN apt-get update && \
     apt-get -y upgrade && \
     apt-get -y install \
     apache2 \
-    php7.0 \
-    php7.0-cli \
-    libapache2-mod-php7.0 \
-    php7.0-gd \
-    php7.0-curl \
-    php7.0-json \
-    php7.0-mbstring \
-    php7.0-mysql \
-    php7.0-xml \
-    php7.0-xsl \
-    php7.0-zip
+    php \
+    php-cli \
+    libapache2-mod-php \
+    php-gd \
+    php-curl \
+    php-json \
+    php-mbstring \
+    php-mysql \
+    php-xml \
+    php-xsl \
+    php-zip \
+    apt-utils
 
 # Enable apache mods.
-RUN a2enmod php7.0
+RUN a2enmod php7.4
 RUN a2enmod rewrite
 
 # Update the PHP.ini file, enable <? ?> tags and quieten logging.
-RUN sed -i "s/short_open_tag = Off/short_open_tag = On/" /etc/php/7.0/apache2/php.ini
-RUN sed -i "s/error_reporting = .*$/error_reporting = E_ERROR | E_WARNING | E_PARSE/" /etc/php/7.0/apache2/php.ini
+RUN sed -i "s/short_open_tag = Off/short_open_tag = On/" /etc/php/7.4/apache2/php.ini
+RUN sed -i "s/error_reporting = .*$/error_reporting = E_ERROR | E_WARNING | E_PARSE/" /etc/php/7.4/apache2/php.ini
 
 # Manually set up the apache environment variables
 ENV APACHE_RUN_USER www-data
