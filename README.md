@@ -10,6 +10,6 @@ How to use---
 Pretty simple
 
 
-docker run -d -p 8080:80 --name=your-php-app -v /dir/that/hosts/your/php/:/var/www buildimagename
+    docker run -d -p 8080:80 --name=your-php-app -v /dir/that/hosts/your/php/:/var/www buildimagename
 
 Above command will host your php app from your host's directory (/dir/that/hosts/your/php) into the Documentroot (/var/www/) on port 8080
