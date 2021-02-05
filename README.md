@@ -1,10 +1,12 @@
 Docker image that allows you to host apache with php modules easily.
 
-Notes-
+Notes---
+
 I edited the original apache conf to not include Indexes and edited Documentroot to be in /var/www. If you need other things edit this file then build the image.
 
 
-How to use-
+How to use---
+
 Pretty simple
 
 
